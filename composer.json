@@ -1,0 +1,19 @@
+{
+    "name": "cis/cis-access",
+    "description": "A role-based access manager for laravel",
+    "type": "package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Cis\\CisAccess\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Markus Klebsattel",
+            "email": "markusklebsattel@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
