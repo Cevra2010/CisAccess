@@ -15,4 +15,11 @@ class Role extends Model
     public function areas() {
         return $this->belongsToMany(Area::class);
     }
+
+    public function hasAccessToArea($areaSlug) {
+        if($this->areas()->where('slug',$areaSlug)->count()) {
+            return true;
+        }
+        return false;
+    }
 }

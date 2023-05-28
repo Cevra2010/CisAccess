@@ -25,7 +25,7 @@ class DefineArea
 
     public function handle(Request $request, Closure $next, $areaSlug)
     {
-        if(!auth()->user()->hasAccess($areaSlug)) {
+        if(!auth()->check() || !auth()->user()->hasAccess($areaSlug)) {
             abort(403);
         }
 

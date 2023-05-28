@@ -15,5 +15,7 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.8"
+    }
 }
