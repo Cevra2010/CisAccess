@@ -5,6 +5,7 @@ use Illuminate\Contracts\Http\Kernel;
 use Cis\CisAccess\Http\Middleware\DefineArea;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 class CisAccessServiceProvider extends ServiceProvider {
@@ -16,7 +17,10 @@ class CisAccessServiceProvider extends ServiceProvider {
 
     public function boot(Kernel $kernel)
     {
-        CisAccess::init();
+        // Check DB-Migration
+        if(Schema::hasTable('areas')) {
+            CisAccess::init();
+        }
         /* Adding route middleware */
         $router = $this->app->make(Router::class);
         $router->aliasMiddleware('define-area',DefineArea::class);
